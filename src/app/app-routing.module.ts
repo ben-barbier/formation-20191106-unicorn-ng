@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { UnicornListComponent } from './pages/unicorn-list/unicorn-list.component';
+import { UnicornDetailComponent } from './pages/unicorn-detail/unicorn-detail.component';
+import { HaveCapacitiesGuard } from './shared/guards/have-capacities.guard';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+    {path: '', component: UnicornListComponent},
+    {
+        path: 'unicorns/:id',
+        component: UnicornDetailComponent,
+        canActivate: [HaveCapacitiesGuard],
+    },
+    {path: '**', redirectTo: ''},
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

@@ -1,0 +1,7 @@
+<h1>test</h1>
+
+<obs-unicorn-card
+    *ngFor="let unicorn of unicorns"
+    [unicorn]="unicorn"
+    (removed)="removeUnicornFromList(unicorn)">
+</obs-unicorn-card>

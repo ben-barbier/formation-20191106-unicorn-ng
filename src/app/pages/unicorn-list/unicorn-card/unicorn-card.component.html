@@ -1,0 +1,9 @@
+<ul>
+    <li>nom: {{ unicorn.name }}</li>
+    <li>age: {{ unicorn.birthyear }}</li>
+    <li>poids: {{ unicorn.weight }}</li>
+    <li>capacities: {{ unicorn.capacityLabels | json }}</li>
+</ul>
+<button (click)="deleteUnicorn()">delete</button>
+<button mat-fab [routerLink]="['unicorns', unicorn.id]"><mat-icon>visibility</mat-icon></button>
+<button mat-fab (click)="toggleUnicorn()" [color]="isInCart?'accent':''"><mat-icon>favorite</mat-icon></button>
